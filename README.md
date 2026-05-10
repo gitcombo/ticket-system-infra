@@ -16,6 +16,7 @@ Este repositorio contiene el diseño del sistema (curso de *Infraestructura en l
 
 ```
 infra/          → Código Terraform e infraestructura como código
+k8s/            → Manifests de Kubernetes (EKS track)
 .github/        → Pipelines de GitHub Actions
 ```
 
