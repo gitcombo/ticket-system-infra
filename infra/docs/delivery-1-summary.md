@@ -1,6 +1,5 @@
 # Delivery 1 — IaC Workspace Bootstrap & CI Pipeline
 
-**Equipo:** Erick Estuardo Sabán Avila / Luis André Morales Acuña
 **Curso:** Optimizations and Performance — PDDS, Universidad Galileo  
 **Fecha de entrega:** 10 de mayo de 2026  
 **Tag:** `oyd-delivery-1`
@@ -12,7 +11,9 @@
 **Proveedor:** Amazon Web Services (AWS)  
 **Región:** `us-east-1` (US East — N. Virginia)
 
-**Justificación:** AWS fue elegido por dos razones principales. Primero, el sistema de tickets e incidentes diseñado en *Infraestructura en la Nube* utiliza servicios que tienen su mayor madurez y cobertura de documentación en AWS: SQS para la cola de escalamiento automático, ECS Fargate para el backend de la API, y RDS para la base de datos relacional de tickets. Segundo, `us-east-1` es la región con la mayor disponibilidad de servicios de AWS globalmente y tiene la latencia más baja hacia los servidores de GitHub Actions, lo que reduce el tiempo de ejecución del pipeline de CI.
+**Justificación:** AWS fue elegido por dos razones principales. Primero, el sistema de tickets e incidentes diseñado en *Infraestructura en la Nube* utiliza servicios que tienen su mayor madurez y cobertura de documentación en AWS: SQS para la cola de escalamiento automático, ECS Fargate para el backend de la API, y RDS para la base de datos relacional de tickets. 
+
+Segundo, `us-east-1` es la región con la mayor disponibilidad de servicios de AWS globalmente y tiene la latencia más baja hacia los servidores de GitHub Actions, lo que reduce el tiempo de ejecución del pipeline de CI.
 
 ---
 
@@ -20,7 +21,10 @@
 
 **Recurso:** `aws_s3_bucket` — bucket de almacenamiento para adjuntos de tickets y reportes de resolución.
 
-**Por qué este recurso primero:** El bucket S3 fue elegido como recurso de prueba de concepto porque (a) es el recurso más simple de provisionar en AWS sin dependencias de red o IAM complejas, (b) valida que el provider, las credenciales y el wiring de variables funcionan end-to-end, y (c) es un componente real del sistema — en Delivery 2 se convertirá en el módulo de almacenamiento con versioning, lifecycle rules y cifrado en reposo.
+**Por qué este recurso primero:** El bucket S3 fue elegido como recurso de prueba de concepto porque:
+  (a) es el recurso más simple de provisionar en AWS sin dependencias de red o IAM complejas, 
+  (b) valida que el provider, las credenciales y el wiring de variables funcionan end-to-end, y 
+  (c) es un componente real del sistema — en Delivery 2 se convertirá en el módulo de almacenamiento con versioning, lifecycle rules y cifrado en reposo.
 
 **Nombre del bucket:** `ticket-system-dev-attachments-galileo-pdds`
 
