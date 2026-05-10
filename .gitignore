@@ -1,0 +1,27 @@
+# Terraform state — local state files contain resource IDs and may contain
+# sensitive data. Committed intentionally for Delivery 1 (local state phase).
+# Will be moved to remote backend in Delivery 2 and added here then.
+# terraform.tfstate
+# terraform.tfstate.backup
+
+# Terraform working directory
+.terraform/
+.terraform.lock.hcl
+
+# Plan files (binary, not human-readable, generated on demand)
+tfplan
+*.tfplan
+
+# Variable files that may contain secrets
+# (dev.tfvars is committed intentionally — it contains no secrets)
+*.auto.tfvars
+secrets.tfvars
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor artifacts
+.idea/
+.vscode/
+*.swp
