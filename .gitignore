@@ -7,6 +7,7 @@
 # Terraform working directory
 .terraform/
 .terraform.lock.hcl
+*Zone.Identifier
 
 # Plan files (binary, not human-readable, generated on demand)
 tfplan

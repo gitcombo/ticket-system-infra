@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ticket-system-config
+  namespace: ticket-system
+  labels:
+    app.kubernetes.io/name: ticket-system
+data:
+  # AWS region where the supporting services (SQS, RDS, S3) are provisioned.
+  AWS_REGION: "us-east-1"
+
+  # Log level for the API service. Set to "debug" in dev, "info" in prod.
+  LOG_LEVEL: "debug"
+
+  # Maximum number of tickets returned per paginated list request.
+  PAGE_SIZE: "50"
+
+  # Timeout in seconds before an unacknowledged SQS message is re-queued.
+  SQS_VISIBILITY_TIMEOUT: "30"
+
+  # Environment tag consumed by the app for logging and tracing context.
+  APP_ENV: "dev"

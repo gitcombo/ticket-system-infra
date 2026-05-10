@@ -140,6 +140,14 @@ Ir a `Settings → Secrets and variables → Actions` y agregar:
 
 ---
 
+## Track seleccionado
+
+**Optional Track 1 — Kubernetes / Amazon EKS**
+
+Este equipo ha optado por el EKS track. El directorio `k8s/` en la raíz del repositorio contiene los manifests de Kubernetes (scaffolding para Delivery 3). En Delivery 2 se agregará el módulo Terraform para el cluster EKS usando `terraform-aws-modules/eks`. En Delivery 5 se configurará IRSA (IAM Roles for Service Accounts).
+
+---
+
 ## Entregables por Delivery
 
 | Delivery | Fecha | Qué agrega |
