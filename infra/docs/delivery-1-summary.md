@@ -1,6 +1,6 @@
 # Delivery 1 — IaC Workspace Bootstrap & CI Pipeline
 
-**Equipo:** [Nombres del equipo]  
+**Equipo:** Erick Estuardo Sabán Avila / Luis André Morales Acuña
 **Curso:** Optimizations and Performance — PDDS, Universidad Galileo  
 **Fecha de entrega:** 10 de mayo de 2026  
 **Tag:** `oyd-delivery-1`
