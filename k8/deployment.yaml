@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ticket-system-api
+  namespace: ticket-system
+  labels:
+    app.kubernetes.io/name: ticket-system
+    app.kubernetes.io/component: api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ticket-system
+      app.kubernetes.io/component: api
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ticket-system
+        app.kubernetes.io/component: api
+    spec:
+      # Placeholder — will be replaced by the actual ECR URI in Delivery 3
+      # when the ECR repository is provisioned via Terraform.
+      # Format will be: <account_id>.dkr.ecr.us-east-1.amazonaws.com/ticket-system-api:1.0.0
+      containers:
+        - name: api
+          image: ticket-system-api:1.0.0
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: ticket-system-config
+          # Sensitive values (DB password, SQS URL, S3 bucket name) will be
+          # injected from Secrets Manager via IRSA in Delivery 5.
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 30
